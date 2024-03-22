@@ -2,9 +2,6 @@ import {GetStaticPaths, GetStaticProps, GetStaticPropsContext, NextPage} from "n
 import {useRouter} from "next/router";
 import Head from "next/head";
 import {ParsedUrlQuery} from "querystring";
-import {PreviewData} from "next/types";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import {useEffect} from "react";
 
 type PostProps = {
     id: string
@@ -36,7 +33,8 @@ const Post: NextPage<PostProps> = (props: PostProps) => {
 };
 
 /*
-    getStaticPaths 는 생성한 페이지의 경로 파라미터의 조합을 반환한다.
+    getStaticProps 실행전에 호출되는 함수, 생성할 페이지의 경로 파라미터의 조합(paths,fallback)을 반환한다.
+    paths는 경로 파라미터의 조합을 나타내며, 배열의 각 요소가 1개의 페이지에 대응한다.
     이 파일은 pages/posts/[id].tsx 이므로, 경로 파라미터로서 id의 값을 반환해야 한다.
  */
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -59,10 +57,10 @@ interface PostParams extends ParsedUrlQuery {
 }
 
 // getStaticPaths 실행 후에 각 경로에 대해 getStaticProps가 실행된다.
-export const getStaticProps: GetStaticProps<PostProps, PostParams> = async (context) => {
+export const getStaticProps: GetStaticProps<PostProps, PostParams> = async ({params}) => {
     return {
         props: {
-            id: context.params!['id'],
+            id: params!['id'],
         }
     };
 };
