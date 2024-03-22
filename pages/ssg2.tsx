@@ -1,4 +1,4 @@
-import {GetStaticProps, NextPage, NextPageContext} from "next";
+import {GetStaticProps, GetStaticPropsContext, NextPage} from "next";
 import Head from 'next/head';
 
 // 페이지 컴포넌트의 props 타입 정의
@@ -32,7 +32,7 @@ const SSG2: NextPage<SSGProps> = (prop: SSGProps) => {
     익스포트 해야 하며, 비동기 함수로 정의해야 한다.
     context는 실행 관련 정보가 모인 객체이다.
  */
-export const getStaticProps: GetStaticProps<SSGProps> = async (context: NextPageContext) => {
+export const getStaticProps: GetStaticProps<SSGProps> = async (context: GetStaticPropsContext) => {
     const timestamp = new Date().toLocaleString();
     const message = `${timestamp}에 getStaticProps가 실행되었습니다.`;
     console.log(message);
