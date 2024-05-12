@@ -37,3 +37,6 @@ next-env.d.ts
 
 # intelli j
 /.idea/
+
+*storybook.log
+/storybook-static/

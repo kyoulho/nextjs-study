@@ -1,4 +1,4 @@
-import {GetStaticPaths, GetStaticProps, GetStaticPropsContext, NextPage} from "next";
+import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import {useRouter} from "next/router";
 import Head from "next/head";
 import {ParsedUrlQuery} from "querystring";
@@ -23,7 +23,7 @@ const Post: NextPage<PostProps> = (props: PostProps) => {
         <div>
             <Head>
                 <title>Create Next App</title>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href={"/favicon.ico"}/>
             </Head>
             <main><p>이 페이지는 정적 사이트 생성을 통해 빌드 시 생성된 페이지 입니다.</p>
                 <p>{`/posts/${id}에 대응하는 페이지입니다.`}</p>
