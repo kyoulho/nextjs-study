@@ -1,13 +1,21 @@
 import {StyledButton} from "@/components/StyledButton";
 import {action} from "@storybook/addon-actions";
 import React, {useState} from "react";
+import {Meta} from "@storybook/react";
+import MDXDocument from "./StyledButton.mdx";
 
 // 파일 안의 스토리 설정(메타데이터 객체)
 export default {
     // 그룹명
     title: 'StyledButton',
     // 자동으로 문서 생성
-    tags: ["autodocs"],
+    //tags: ["autodocs"],
+    parameters: {
+        docs:{
+            // 도큐먼트용 mdx 컴포넌트를 지정
+            page: MDXDocument,
+        }
+    },
     // 사용하는 컴포넌트
     component: StyledButton,
     // 매개변수를 스토리북에서 변경할 수 있도록 추가
@@ -20,7 +28,7 @@ export default {
             control: {type: "text"}
         }
     }
-};
+} as Meta<typeof StyledButton>;
 
 // increment 라는 이름으로 action을 출력하기 위한 함수를 만든다.
 const incrementAction = action('increment');
