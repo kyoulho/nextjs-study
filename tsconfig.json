@@ -16,6 +16,11 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../Library/Caches/JetBrains/IntelliJIdea2021.3/javascript/typings/jest/29.5.12/node_modules/@types/jest/index.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
